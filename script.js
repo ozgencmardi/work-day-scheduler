@@ -17,7 +17,7 @@ for (let i = 9; i <= 17; i++) {
     let eventCol = $("<div>").addClass("col-10 event");
     let eventInput = $("<textarea>").addClass("description");
     eventInput.attr("id", i);
-    //$("textarea").attr("required", "true");
+    eventInput.attr("required", "true");
     eventCol.append(eventInput);
 
     let saveBtn = $("<button>").addClass("col-1 saveBtn").text("Save");  
@@ -57,10 +57,17 @@ $(document).ready(function() {
 
 
 $(".saveBtn").on("click", function() {
-    var event = $(this).siblings().children("textarea").val();
-    var hour = $(this).siblings(".hour").text();
-    hour = parseInt(hour.substring(0, 2));
-    localStorage.setItem("event-" + hour, event);
+
+    //if ($('textarea').val() == "") {
+      //  alert("Please enter text in the textarea");
+    //} else {
+        var event = $(this).siblings().children("textarea").val();
+        var hour = $(this).siblings(".hour").text();
+        hour = parseInt(hour.substring(0, 2));
+        localStorage.setItem("event-" + hour, event);
+        $(".message").text("Event saved successfully.");
+    //}
+
 });
 
 $(".deleteBtn").on("click", function() {
@@ -69,4 +76,5 @@ $(".deleteBtn").on("click", function() {
     var hour = $(this).siblings(".hour").text();
     hour = parseInt(hour.substring(0, 2));  
     localStorage.removeItem("event-" + hour, event);
+    $(".deletemessage").text("Event deleted successfully.");
 });

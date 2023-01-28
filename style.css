@@ -22,6 +22,14 @@ textarea {
   border-bottom: 10px solid black;
 }
 
+.message {
+  text-align: center;
+}
+
+.deletemessage {
+  text-align: center;
+}
+
 .description {
   white-space: pre-wrap;
 }
