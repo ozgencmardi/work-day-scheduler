@@ -16,11 +16,9 @@ for (let i = 9; i <= 17; i++) {
     let eventInput = $("<textarea>").addClass("description");
     eventCol.append(eventInput);
 
-    let saveCol = $("<div>").addClass("col-1 save");
-    let saveBtn = $("<button>").addClass("saveBtn").text("Save");
-    saveCol.append(saveBtn);
+    let saveBtn = $("<button>").addClass("col-1 saveBtn").text("Save");
 
-    row.append(hourCol, eventCol, saveCol);
+    row.append(hourCol, eventCol, saveBtn);
 
     $(".container").append(row);
 
