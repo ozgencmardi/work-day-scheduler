@@ -24,7 +24,7 @@ for (let i = 9; i <= 17; i++) {
 
     $(".container").append(row);
 
-    let currentHour = moment().hour();
+    let currentHour = 15;
 
     if (i < currentHour) {
         
