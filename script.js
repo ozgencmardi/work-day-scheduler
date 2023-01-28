@@ -52,8 +52,8 @@ $(document).ready(function() {
 $(".saveBtn").on("click", function() {
     var event = $(this).siblings().children("textarea").val();
     var hour = $(this).siblings(".hour").text();
-    console.log(hour)
+    //console.log(hour)
     hour = parseInt(hour.substring(0, 2));
-    console.log(hour)
+    //console.log(hour)
     localStorage.setItem("event-" + hour, event);
 });
