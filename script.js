@@ -84,7 +84,8 @@ $(".saveBtn").on("click", function() {
         var hour = $(this).siblings(".hour").text();
         hour = parseInt(hour.substring(0, 2));
         localStorage.setItem("event-" + hour, event);
-        $(".message").text("Event saved successfully.");
+        $(".message").text("✅ Event saved successfully.");
+        $(".deletemessage").empty();
     //}
 
 });
@@ -95,5 +96,6 @@ $(".deleteBtn").on("click", function() {
     var hour = $(this).siblings(".hour").text();
     hour = parseInt(hour.substring(0, 2));  
     localStorage.removeItem("event-" + hour, event);
-    $(".deletemessage").text("Event deleted successfully.");
+    $(".deletemessage").text("❌ Event deleted successfully.");
+    $(".message").empty();
 });
