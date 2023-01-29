@@ -4,6 +4,17 @@ $(document).ready(function() {
 });
 
 
+function updateBtnVisibility(eventInput, saveBtn, deleteBtn) {
+    if (eventInput.val().trim() === "") {
+        saveBtn.show();
+        deleteBtn.hide();
+    } else {
+        saveBtn.hide();
+        deleteBtn.show();
+    }
+}
+
+
 for (let i = 9; i <= 17; i++) {
 
     selectedHour = i;
@@ -22,15 +33,7 @@ for (let i = 9; i <= 17; i++) {
 
     let saveBtn = $("<button>").addClass("col-1 saveBtn").text("Save");  
     let deleteBtn = $("<button>").addClass("col-1 deleteBtn").text("Delete");
-
-    if (eventInput.val().trim() === "") {
-        saveBtn.show();
-        deleteBtn.hide();
-    } else {
-        saveBtn.hide();
-        deleteBtn.show();
-    }
-    
+    updateBtnVisibility(eventInput, saveBtn, deleteBtn);
 
     row.append(hourCol, eventCol, saveBtn, deleteBtn);
 
@@ -45,6 +48,22 @@ for (let i = 9; i <= 17; i++) {
     } else {
         eventInput.addClass("future");
     }
+
+    saveBtn.click(function() {
+        if (eventInput.val().trim() === "") {
+            saveBtn.show();
+            deleteBtn.hide();
+        } else {
+            saveBtn.hide();
+            deleteBtn.show();
+        }
+    });
+
+    deleteBtn.click(function() {
+        eventInput.val("");
+        saveBtn.show();
+        deleteBtn.hide();
+    });
 }
 
 
