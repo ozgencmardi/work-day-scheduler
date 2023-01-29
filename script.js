@@ -17,13 +17,21 @@ function updateBtnVisibility(eventInput, saveBtn, deleteBtn) {
 
 for (let i = 9; i <= 17; i++) {
 
+    let ampm = "AM";
+    let hour = i;
+
+    if (i > 12) {
+        ampm = "PM";
+        hour -= 12;
+    }
+
     selectedHour = i;
 
     let row = $("<div>").addClass("time-block");
     row.attr("id", "time-" + i);
 
     let hourCol = $("<div>").addClass("col-1 hour");
-    hourCol.text(i + ":00");
+    hourCol.text(hour + ":00 " + ampm);
 
     let eventCol = $("<div>").addClass("col-10 event");
     let eventInput = $("<textarea>").addClass("description");
